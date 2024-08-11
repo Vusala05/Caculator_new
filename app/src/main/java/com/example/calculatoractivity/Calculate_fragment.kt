@@ -19,6 +19,7 @@ class Calculate_fragment : Fragment(R.layout.fragment_calculate_fragment) {
 
             setupPlus()
             setupMinus()
+            setupMultiply()
 
         }
 
@@ -36,6 +37,15 @@ class Calculate_fragment : Fragment(R.layout.fragment_calculate_fragment) {
             val firstNum = binding.firstNum.text.toString().toDoubleOrNull() ?: 0.0
             val secondNum = binding.secondNum.text.toString().toDoubleOrNull() ?: 0.0
             val result = firstNum - secondNum
+            val action = Calculate_fragmentDirections.actionCalculateFragmentToResultFragment(result.toString())
+            Navigation.findNavController(it).navigate(action)
+        }
+    }
+    private fun setupMultiply() {
+        binding.multiply.setOnClickListener {
+            val firstNum = binding.firstNum.text.toString().toDoubleOrNull() ?: 0.0
+            val secondNum = binding.secondNum.text.toString().toDoubleOrNull() ?: 0.0
+            val result = firstNum * secondNum
             val action = Calculate_fragmentDirections.actionCalculateFragmentToResultFragment(result.toString())
             Navigation.findNavController(it).navigate(action)
         }
