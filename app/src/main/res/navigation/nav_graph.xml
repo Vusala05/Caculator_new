@@ -22,5 +22,8 @@
         <argument
             android:name="result"
             app:argType="string" />
+        <action
+            android:id="@+id/action_result_fragment_to_calculate_fragment"
+            app:destination="@id/calculate_fragment" />
     </fragment>
 </navigation>
